@@ -4,6 +4,8 @@ from .forms import CreateUserForm, LoginForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 
+from django.contrib.auth.decorators import login_required
+
 
 def homepage(request):
     return render(request, 'crm/index.html')
@@ -65,5 +67,6 @@ def user_logout(request):
     return redirect("")
 
 
+@login_required(login_url="login")
 def dashboard(request):
     return render(request, 'crm/dashboard.html')

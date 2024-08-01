@@ -33,14 +33,14 @@ class RegisterViewTest(TestCase):
         })
         self.assertEqual(response.status_code, 200)  # Expecting to stay on the same page
         self.assertTemplateUsed(response, 'crm/register.html')
-        self.assertFormError(response, 'form', 'username', 'Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.')
-        self.assertFormError(response, 'form', 'password2', 'This password is too common.')
+        self.assertFormError(response, 'registerform', 'username', 'Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.')
+        self.assertFormError(response, 'registerform', 'password2', 'This password is too common.')
 
     def test_register_post_missing_fields(self):
         response = self.client.post(self.register_url, {})
         self.assertEqual(response.status_code, 200)  # Expecting to stay on the same page
         self.assertTemplateUsed(response, 'crm/register.html')
-        self.assertFormError(response, 'form', 'username', 'This field is required.')
-        self.assertFormError(response, 'form', 'email', 'This field is required.')
-        self.assertFormError(response, 'form', 'password1', 'This field is required.')
-        self.assertFormError(response, 'form', 'password2', 'This field is required.')
+        self.assertFormError(response, 'registerform', 'username', 'This field is required.')
+        self.assertFormError(response, 'registerform', 'email', 'This field is required.')
+        self.assertFormError(response, 'registerform', 'password1', 'This field is required.')
+        self.assertFormError(response, 'registerform', 'password2', 'This field is required.')
