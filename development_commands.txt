@@ -1,0 +1,12 @@
+python -m pip install --upgrade pip
+pip install virtualenv
+virtualenv env
+source env/bin/activate
+    deactivate
+
+pip install django
+django-admin startproject elevate .
+
+
+pip install crispy
+pip install crispy-bootstrap5
