@@ -11,3 +11,9 @@ python manage.py runserver
     http://127.0.0.1:8000/
 
 django-admin startapp crm
+python manage.py createsuperuser
+    Username: admin
+    Email address: admin@example.com
+    Password: Admin1234
+
+python manage.py test
